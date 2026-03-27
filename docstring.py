@@ -12,3 +12,4 @@ print(a_Func.__doc__)
 print(b_Func.__doc__)
 
 #prints "this function sums a value"
+#prints "this function multiplies a value"
