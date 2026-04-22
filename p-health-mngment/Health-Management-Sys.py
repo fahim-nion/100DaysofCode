@@ -61,4 +61,10 @@ user_log = int(input(
     '''
     ))
 
-if 1
+if user_log == 1:
+    data = input(
+        '''
+        Press 1 to get data
+        Press 2 to input Data
+        '''
+    )
