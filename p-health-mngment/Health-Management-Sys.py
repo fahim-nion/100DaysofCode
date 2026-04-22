@@ -46,6 +46,19 @@ Execute: Write to or read from the corresponding text file based on the selectio
 
 def getDate():
     import datetime
-    return datetime.datetime.now()
+    data = str(datetime.datetime.now())
+    res = data.split(" ")
+    return res
 
-print(getDate())
+# print(getDate())
+
+user_log = int(input(
+    ''' 
+    Welcome to the hospital Management System!
+    Press 1 for Harry
+    Press 2 for Rohan
+    Press 3 for Hammad
+    '''
+    ))
+
+if 1
