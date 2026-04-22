@@ -52,42 +52,47 @@ def getDate():
 
 # print(getDate())
 
-def dumpData(who):
+
+def dumpData(who,what,doing):
     if who.title() == "Harry":
-        with open("harry_food.txt", "w") as f:
-            f.write(f"{[getDate()] : Harry had {food}.}")
+        if what == 1:
+            with open("harry_food.txt", "a") as f:
+                f.write(f"{[getDate()]} : Harry had {doing}. \n")
+        elif what == 2:
+            with open("harry_exc.txt", "a") as f:
+                f.write(f"{[getDate()]} : Harry had done {doing}. \n")
     if who.title() == "Rohan":
         with open("rohan_food.txt", "w") as f:
-            f.write(f"{[getDate()] : Rohan had {food}.}")
+            f.write(f"{[getDate()]} : Rohan had {food}.\n")
     if who.title() == "Hammad":
         with open("hammad_food.txt", "w") as f:
-            f.write(f"{[getDate()] : Hammad had {food}.}")
+            f.write(f"{[getDate()]} : Hammad had {food}.\n")
     
 def loadData(who):
     if who.title() == "Harry":
         with open("harry_food.txt","r") as f1 , open("harry_exc.txt","r") as f2:
-            content = f1.read()
-            print(content)
+            content1 = f1.read()
+            print(content1)
 
-            content = f2.read()
-            print(content)
+            content2 = f2.read()
+            print(content2)
     if who.title() == "Rohan":
         with open("rohan_food.txt","r") as f1 , open("rohan_exc.txt","r") as f2:
-            content = f1.read()
-            print(content)
+            content1 = f1.read()
+            print(content1)
 
-            content = f2.read()
-            print(content)
+            content2 = f2.read()
+            print(content2)
     if who.title() == "Hammad":
         with open("hammad_food.txt","r") as f1 , open("hammad_exc.txt","r") as f2:
-            content = f1.read()
-            print(content)
+            content1 = f1.read()
+            print(content1)
 
-            content = f2.read()
-            print(content)
+            content2 = f2.read()
+            print(content2)
 user_log = int(input(
     ''' 
-    Welcome to the hospital Management System!
+    Welcome to the Health Data Management System!
     Press 1 for Harry
     Press 2 for Rohan
     Press 3 for Hammad
@@ -105,13 +110,18 @@ if user_log == 1:
         '''
     )
     if data == 1:
-        loadData(person,)
+        loadData(person)
     elif data == 2:
-        see_data = int(input('''
+        updt_data = int(input('''
             Which data you want to input?
             Press 1 for Food Data.
             Press 2 for Excercise Data.
             '''))
+        if updt_data == 1:
+            doing = input("What did you just had? ")
+        elif updt_data == 2:
+            doing = input("What did you just do for excercise? ")
+        dumpData(person,updt_data,doing)
         
 elif user_log == 2:
     person = "rohan"
@@ -125,11 +135,16 @@ elif user_log == 2:
     if data == 1:
         loadData(person)
     elif data == 2:
-        see_data = int(input('''
+        updt_data = int(input('''
             Which data you want to input?
             Press 1 for Food Data.
             Press 2 for Excercise Data.
             '''))
+        if updt_data == 1:
+            doing = input("What did you just had? ")
+        elif updt_data == 2:
+            doing = input("What did you just do for excercise? ")
+        dumpData(person,updt_data,doing)
 elif user_log == 3:
     person = "hammad"
     data = input(
@@ -142,8 +157,13 @@ elif user_log == 3:
     if data == 1:
         loadData(person)
     elif data == 2:
-        see_data = int(input('''
+        updt_data = int(input('''
             Which data you want to input?
             Press 1 for Food Data.
             Press 2 for Excercise Data.
             '''))
+        if updt_data == 1:
+            doing = input("What did you just had? ")
+        elif updt_data == 2:
+            doing = input("What did you just do for excercise? ")
+        dumpData(person,updt_data,doing)
