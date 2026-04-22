@@ -4,10 +4,18 @@
     
 #reading line by line
 
-with open("pi.txt") as f:
-    for line in f:
-        print(line)
+# with open("pi.txt") as f:
+#     for line in f:
+#         print(line)         #using rstrip() will remove the extra space
 
+
+##making list from a file
+
+with open('pi.txt') as f:
+    lines = f.readlines()
+    print(lines)
+    for i in lines:
+        print(i)
 
 '''
 if the file is in another folder that needs access then it should be with backslashes. 
