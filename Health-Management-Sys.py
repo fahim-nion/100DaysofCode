@@ -1,0 +1,51 @@
+#Health Management System
+'''
+
+1. Objective
+The goal is to create a Health Management System that can log and retrieve the diet and exercise routines of three specific clients.
+
+2. Client Specifications [01:02]
+The system must manage data for exactly three clients:
+
+Harry
+
+Rohan
+
+Hammad
+
+3. File Management [01:21]
+You are required to manage a total of 6 files. Each client will have two dedicated files:
+
+One file to log their Food/Diet data.
+
+One file to log their Exercise data.
+
+4. Functional Requirements
+Data Logging Function [01:26]: Create a function that, when executed, asks for the client's name and then prompts the user to input what they want to log (either food or exercise).
+
+Timestamp Integration [02:02]: You must use a helper function (typically named getdate()) that returns the current date and time using the datetime module. Every entry logged into a file must be prefixed with this timestamp.
+
+Data Retrieval Function [03:54]: Create another function to retrieve and display the logged data. It should ask which client's data to view and whether the user wants to see the food log or the exercise log.
+
+5. Helper Code Provided [02:13]
+The video provides the following snippet to help with the timestamping:
+
+Python
+def getdate():
+    import datetime
+    return datetime.datetime.now()
+6. Workflow Summary
+Ask for Client: Select between Harry, Rohan, or Hammad.
+
+Ask for Action: Choose between Logging (writing new data) or Retrieving (reading existing data).
+
+Ask for Category: Choose between Food or Exercise.
+
+Execute: Write to or read from the corresponding text file based on the selections above.
+'''
+
+def getDate():
+    import datetime
+    return datetime.datetime.now()
+
+print(getDate())
