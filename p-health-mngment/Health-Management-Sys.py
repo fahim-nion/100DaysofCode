@@ -44,126 +44,93 @@ Ask for Category: Choose between Food or Exercise.
 Execute: Write to or read from the corresponding text file based on the selections above.
 '''
 
+import datetime
+
 def getDate():
-    import datetime
-    data = str(datetime.datetime.now())
-    res = data.split(" ")
-    return res
-
-# print(getDate())
+    return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 
-def dumpData(who,what,doing):
-    if who.title() == "Harry":
-        if what == 1:
-            with open("harry_food.txt", "a") as f:
-                f.write(f"{[getDate()]} : Harry had {doing}. \n")
-        elif what == 2:
-            with open("harry_exc.txt", "a") as f:
-                f.write(f"{[getDate()]} : Harry had done {doing}. \n")
-    if who.title() == "Rohan":
-        with open("rohan_food.txt", "w") as f:
-            f.write(f"{[getDate()]} : Rohan had {food}.\n")
-    if who.title() == "Hammad":
-        with open("hammad_food.txt", "w") as f:
-            f.write(f"{[getDate()]} : Hammad had {food}.\n")
-    
+
+def dumpData(who, what, doing):
+    file_type = "food" if what == 1 else "exc"
+    filename = f"{who.lower()}_{file_type}.txt"
+
+    action = "had" if what == 1 else "did"
+
+    with open(filename, "a") as f:
+        f.write(f"[{getDate()}] : {who.title()} {action} {doing}\n")
+
+    print("Data saved successfully!")
+
+
 def loadData(who):
-    if who.title() == "Harry":
-        with open("harry_food.txt","r") as f1 , open("harry_exc.txt","r") as f2:
-            content1 = f1.read()
-            print(content1)
+    files = [
+        f"{who.lower()}_food.txt",
+        f"{who.lower()}_exc.txt"
+    ]
 
-            content2 = f2.read()
-            print(content2)
-    if who.title() == "Rohan":
-        with open("rohan_food.txt","r") as f1 , open("rohan_exc.txt","r") as f2:
-            content1 = f1.read()
-            print(content1)
+    for file in files:
+        print(f"\n--- {file} ---")
+        try:
+            with open(file, "r") as f:
+                print(f.read())
+        except FileNotFoundError:
+            print("No data found.")
 
-            content2 = f2.read()
-            print(content2)
-    if who.title() == "Hammad":
-        with open("hammad_food.txt","r") as f1 , open("hammad_exc.txt","r") as f2:
-            content1 = f1.read()
-            print(content1)
 
-            content2 = f2.read()
-            print(content2)
-user_log = int(input(
-    ''' 
-    Welcome to the Health Data Management System!
-    Press 1 for Harry
-    Press 2 for Rohan
-    Press 3 for Hammad
-    '''
+people = {
+    1: "harry",
+    2: "rohan",
+    3: "hammad"
+}
+
+try:
+    user_log = int(input(
+        '''
+Welcome to the Health Data Management System!
+Press 1 for Harry
+Press 2 for Rohan
+Press 3 for Hammad
+: '''
     ))
 
+    if user_log not in people:
+        print("Invalid choice")
+    else:
+        person = people[user_log]
 
-if user_log == 1:
-    person = "harry"
-    data = input(
-        '''
-        Welcome Harry!
-        Press 1 to get data
-        Press 2 to input Data
-        '''
-    )
-    if data == 1:
-        loadData(person)
-    elif data == 2:
-        updt_data = int(input('''
-            Which data you want to input?
-            Press 1 for Food Data.
-            Press 2 for Excercise Data.
-            '''))
-        if updt_data == 1:
-            doing = input("What did you just had? ")
-        elif updt_data == 2:
-            doing = input("What did you just do for excercise? ")
-        dumpData(person,updt_data,doing)
-        
-elif user_log == 2:
-    person = "rohan"
-    data = input(
-        '''
-        Welcome Harry!
-        Press 1 to get data
-        Press 2 to input Data
-        '''
-    )
-    if data == 1:
-        loadData(person)
-    elif data == 2:
-        updt_data = int(input('''
-            Which data you want to input?
-            Press 1 for Food Data.
-            Press 2 for Excercise Data.
-            '''))
-        if updt_data == 1:
-            doing = input("What did you just had? ")
-        elif updt_data == 2:
-            doing = input("What did you just do for excercise? ")
-        dumpData(person,updt_data,doing)
-elif user_log == 3:
-    person = "hammad"
-    data = input(
-        '''
-        Welcome Harry!
-        Press 1 to get data
-        Press 2 to input Data
-        '''
-    )
-    if data == 1:
-        loadData(person)
-    elif data == 2:
-        updt_data = int(input('''
-            Which data you want to input?
-            Press 1 for Food Data.
-            Press 2 for Excercise Data.
-            '''))
-        if updt_data == 1:
-            doing = input("What did you just had? ")
-        elif updt_data == 2:
-            doing = input("What did you just do for excercise? ")
-        dumpData(person,updt_data,doing)
+        data = int(input(
+            f'''
+Welcome {person.title()}!
+Press 1 to get data
+Press 2 to input data
+: '''
+        ))
+
+        if data == 1:
+            loadData(person)
+
+        elif data == 2:
+            updt_data = int(input('''
+Which data you want to input?
+Press 1 for Food Data
+Press 2 for Exercise Data
+: '''))
+
+            if updt_data not in [1, 2]:
+                print("Invalid choice")
+            else:
+                if updt_data == 1:
+                    doing = input("What did you eat? ")
+                else:
+                    doing = input("What exercise did you do? ")
+
+                dumpData(person, updt_data, doing)
+
+        else:
+            print("Invalid choice")
+
+except ValueError:
+    print("Please enter numbers only!")
+    
+    
