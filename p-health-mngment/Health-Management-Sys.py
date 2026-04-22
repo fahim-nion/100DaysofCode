@@ -52,6 +52,39 @@ def getDate():
 
 # print(getDate())
 
+def dumpData(who):
+    if who.title() == "Harry":
+        with open("harry_food.txt", "w") as f:
+            f.write(f"{[getDate()] : Harry had {food}.}")
+    if who.title() == "Rohan":
+        with open("rohan_food.txt", "w") as f:
+            f.write(f"{[getDate()] : Rohan had {food}.}")
+    if who.title() == "Hammad":
+        with open("hammad_food.txt", "w") as f:
+            f.write(f"{[getDate()] : Hammad had {food}.}")
+    
+def loadData(who):
+    if who.title() == "Harry":
+        with open("harry_food.txt","r") as f1 , open("harry_exc.txt","r") as f2:
+            content = f1.read()
+            print(content)
+
+            content = f2.read()
+            print(content)
+    if who.title() == "Rohan":
+        with open("rohan_food.txt","r") as f1 , open("rohan_exc.txt","r") as f2:
+            content = f1.read()
+            print(content)
+
+            content = f2.read()
+            print(content)
+    if who.title() == "Hammad":
+        with open("hammad_food.txt","r") as f1 , open("hammad_exc.txt","r") as f2:
+            content = f1.read()
+            print(content)
+
+            content = f2.read()
+            print(content)
 user_log = int(input(
     ''' 
     Welcome to the hospital Management System!
@@ -61,10 +94,56 @@ user_log = int(input(
     '''
     ))
 
+
 if user_log == 1:
+    person = "harry"
     data = input(
         '''
+        Welcome Harry!
         Press 1 to get data
         Press 2 to input Data
         '''
     )
+    if data == 1:
+        loadData(person,)
+    elif data == 2:
+        see_data = int(input('''
+            Which data you want to input?
+            Press 1 for Food Data.
+            Press 2 for Excercise Data.
+            '''))
+        
+elif user_log == 2:
+    person = "rohan"
+    data = input(
+        '''
+        Welcome Harry!
+        Press 1 to get data
+        Press 2 to input Data
+        '''
+    )
+    if data == 1:
+        loadData(person)
+    elif data == 2:
+        see_data = int(input('''
+            Which data you want to input?
+            Press 1 for Food Data.
+            Press 2 for Excercise Data.
+            '''))
+elif user_log == 3:
+    person = "hammad"
+    data = input(
+        '''
+        Welcome Harry!
+        Press 1 to get data
+        Press 2 to input Data
+        '''
+    )
+    if data == 1:
+        loadData(person)
+    elif data == 2:
+        see_data = int(input('''
+            Which data you want to input?
+            Press 1 for Food Data.
+            Press 2 for Excercise Data.
+            '''))
