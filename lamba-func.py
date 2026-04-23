@@ -9,7 +9,7 @@
 
 add = lambda x,y: x+y
 
-minus = lambda x, y: x-y
+minus = lambda x,y: x-y
 
 
 # def minus (x,y):
@@ -17,5 +17,9 @@ minus = lambda x, y: x-y
 
 #these both are the same thing
 
-print(add(2,4))
-print(minus(6,1))
+# print(add(2,4))
+# print(minus(6,1))
+
+myl = [[1,4],[5,6],[8,23]]
+
+print(myl.sort())
