@@ -18,3 +18,7 @@ import time
 
 localTime = time.asctime(time.localtime(time.time()))
 print(localTime)
+
+for i in range(5):
+    print("Hello Fahim!")
+    time.sleep(2)
