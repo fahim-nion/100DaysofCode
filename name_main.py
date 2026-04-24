@@ -5,7 +5,9 @@ def add(n1,n2):
     return n1+n2+5
 
 
-print(printer("Josh"))
+if __name__ == '__main__':
 
-print(add(2,4))
+    print(printer("Josh"))
+
+    print(add(2,4))
 
