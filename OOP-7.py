@@ -1,8 +1,6 @@
 #inheritance
 
 
-#Static Method
-
 
 class Employee:
     num_of_leaves = 8
