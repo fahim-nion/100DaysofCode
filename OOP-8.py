@@ -40,4 +40,6 @@ rohan = Employee("Rohan",3000,"Student")
 
 shubham = Player("Shubham", "Cricket")
 
-karan = CoolProg()
+karan = CoolProg("Karan",12000,"Cool Programmer")
+
+print(karan.__dict__)
