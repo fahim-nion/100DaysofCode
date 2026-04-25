@@ -1,4 +1,6 @@
 #Static Method
+
+
 class Employee:
     num_of_leaves = 8
     
@@ -18,7 +20,7 @@ class Employee:
         
     @staticmethod
     def printGood(string):
-        print(f"This is a good string executed with {string}")
+        return(f"This is a good string executed with {string}")
 
 harry = Employee("Harry",5000,"Instructor")
 
