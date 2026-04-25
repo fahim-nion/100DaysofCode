@@ -15,6 +15,7 @@ class Employee:
     num_of_leaves = 8
     var =99
     _protect = 69
+    __private  = 696969
     
     
     #Constructor
@@ -39,4 +40,5 @@ harry = Employee("Harry",5000,"Instructor")
 
 rohan = Employee("Rohan",3000,"Student")
 
-print(_emp.protect)
+print(Employee._protect)
+print(harry._Employee__private) #now i can access it , this is called name mangling [meaning python did it like this harry._ClassName__privateVarible ]
