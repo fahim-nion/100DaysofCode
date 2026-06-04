@@ -29,7 +29,7 @@ arr6 = np.arange(5,16)      #SES method can also be applied here. (5,6,2)  [5 7 
 # print(arr6)
 
 
-arr7 = np.linspace(10,20,10)
+arr7 = np.linspace(5,20,9)
 
 print(arr7)
 
