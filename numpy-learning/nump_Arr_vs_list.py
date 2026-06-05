@@ -9,4 +9,6 @@ print(arr_A)
 
 import sys
 
-print(sys.getsizeof())
+print(sys.getsizeof(87)*len(list_A))
+
+# the initial list A contains a
