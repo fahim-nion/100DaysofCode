@@ -43,5 +43,6 @@ print(arr12[:,2:4])
 
 #updated
 #learning numpy
+#numpy dusted
 
 
