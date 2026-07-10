@@ -4,7 +4,7 @@ import pytest
 
 @pytest.fixture(scope = "module")
 def preWork():
-    print("I set up browser instance!")
+    print("I set up module instance!")
 
 def test_initialCheck(preWork):
     print("Thid is first Test")
