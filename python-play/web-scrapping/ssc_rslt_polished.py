@@ -5,14 +5,14 @@ roll = input("Enter Roll Number: ")
 reg = input("Enter Registration Number: ")
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=False)
+    browser = p.chromium.launch(headless=True)
     page = browser.new_page()
 
     page.goto("https://www.educationboardresults.gov.bd/v2/home")
 
-    page.get_by_label("Name of Board").select_option("dhaka")
+    page.get_by_label("Name of Board").select_option("mymensingh")
     page.get_by_label("Name of Examination").select_option("ssc")
-    page.get_by_label("Year of Examination").select_option("2018")
+    page.get_by_label("Year of Examination").select_option("2026")
     page.get_by_label("Type of Result").select_option("1")
 
     page.get_by_role("spinbutton", name="Roll Number of Examinee").fill(roll)
